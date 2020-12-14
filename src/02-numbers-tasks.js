@@ -36,7 +36,7 @@ function getRectangleArea(width, height) {
  *   0    => 0
  */
 function getCicleCircumference(radius) {
-  return radius * 2 * 3.14;
+  return radius * 2 * Math.PI;
 }
 
 /**
@@ -52,7 +52,7 @@ function getCicleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-  return ((value1 * 1 + value2 * 1) / 2);
+  return Number.MAX_VALUE > value1 + value2 ? (value1 + value2) / 2 : 1.7976931348623157e+308;
 }
 
 /**
@@ -70,8 +70,8 @@ function getAverage(value1, value2) {
  *   (0,0) (1,0)    => 1
  *   (-5,0) (10,-10) => 18.027756377319946
  */
-function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getDistanceBetweenPoints(x1, y1, x2, y2) {
+  return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
 }
 
 /**
@@ -142,7 +142,7 @@ function getLastDigit(value) {
  * '-525.5'     => -525.5
  */
 function parseNumberFromString(value) {
-  return value.parseInt();
+  return Number(value);
 }
 
 /**
@@ -220,7 +220,7 @@ function isPrime(/* n */) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-  return value.parseInt() >= def.parseInt() ? value.parseInt() : def.parseInt();
+  return Number(value) >= Number(def) ? Number(value) : Number(def);
 }
 
 module.exports = {

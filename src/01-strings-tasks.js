@@ -111,7 +111,7 @@ function repeatString(value, count) { return value.repeat(count); }
  *   'I like legends', 'end' => 'I like legs',
  *   'ABABAB','BA' => 'ABAB'
  */
-function removeFirstOccurrences(str, value) { return str.replace(value); }
+function removeFirstOccurrences(str, value) { return str.replace(value, ''); }
 
 /**
  * Remove the first and last angle brackets from tag string
@@ -154,7 +154,7 @@ function convertToUpperCase(str) { return str.toUpperCase(); }
  *   ],
  *   'info@gmail.com' => ['info@gmail.com']
  */
-function extractEmails(str) { str.splice(/\s*;\s*/); }
+function extractEmails(str) { return str.split(/\s*;\s*/); }
 
 /**
  * Returns the string representation of rectangle with specified width and height
@@ -228,7 +228,7 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-  return typeof value === 'string';
+  return typeof value === 'string' || value instanceof String;
 }
 
 
